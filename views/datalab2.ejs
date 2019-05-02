@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<% include layout/head %>
+
+<body>
+    <% include layout/nav %>
+    <div class="container">
+
+        <div class="row mt-4">
+
+            <h1>데이터 차트</h1>
+            <div class="col-10 offset-1">
+            <form class="form-inline" method="post">
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="word" class="sr-only">검색어</label>
+                    <input type="text" name="w_title" class="form-control" id="w_title" placeholder="타이틀 입력">
+                    <input type="text" name="w_keyword" class="form-control" id="w_keyword" placeholder="키워드 입력">
+                    <input type="text" name="w_title2" class="form-control" id="w_title2" placeholder="타이틀2 입력">
+                    <input type="text" name="w_keyword2" class="form-control" id="w_keyword2" placeholder="키워드2 입력">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">검색하기</button>
+            </form>
+            
+                <canvas id="myChart" width="600" height="400"></canvas>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script>
+    new Chart(document.getElementById("myChart"),
+        {
+            "type": "line",
+            "data": <%- JSON.stringify(g) %>,
+            "options": {
+
+            }
+        });
+</script>
+
+</html>
